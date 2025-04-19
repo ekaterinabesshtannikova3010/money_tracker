@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <h1>Список транзакций</h1>
+    <a href="{% url 'transactions:transaction_create' %}">Добавить транзакцию</a>
+    <table>
+        <tr>
+            <th>Дата</th>
+            <th>Статус</th>
+            <th>Тип</th>
+            <th>Категория</th>
+            <th>Подкатегория</th>
+            <th>Сумма</th>
+            <th>Комментарий</th>
+            <th>Действия</th>
+        </tr>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.date_created }}</td>
+            <td>{{ transaction.status }}</td>
+            <td>{{ transaction.type }}</td>
+            <td>{{ transaction.category }}</td>
+            <td>{{ transaction.subcategory }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.comment }}</td>
+            <td>
+                <a href="{% url 'transactions:transaction_edit' transaction.pk %}">Редактировать</a>
+                <a href="{% url 'transactions:transaction_delete' transaction.pk %}">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</head>
+<body>
+
+</body>
+</html>
