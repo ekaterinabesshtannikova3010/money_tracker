@@ -1,4 +1,4 @@
-Установите зависимости: pip install django psycopg2.
+Установите зависимости: poetry add django psycopg2.
 Настройте базу данных в settings.py.
 Выполните миграции: python manage.py makemigrations и python manage.py migrate.
 Запустите сервер: python manage.py runserver.
